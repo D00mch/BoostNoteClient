@@ -1,0 +1,1 @@
+[Download apk](https://github.com/Liverm0r/BoostNoteClient/blob/master/app/build/outputs/apk/debug/app-debug.apk).
