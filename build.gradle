@@ -28,8 +28,14 @@ task clean(type: Delete) {
 }
 
 ext {
+    compileSdkVersion = 27
+    minSdkVersion = 21
+    targetSdkVersion = 27
+
     supportLibVersion = "27.1.1"
     buildToolVersion = "27.0.3"
-    archLifecycleVersion = "1.1.0"
-    archRoomVersion = "1.1.0"
+    archLifecycleVersion = "1.1.1"
+    archRoomVersion = "1.1.1"
+
+    rxJava = "2.1.14"
 }

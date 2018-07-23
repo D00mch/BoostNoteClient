@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.livermor.boostnoteclient.R
-import com.livermor.boostnoteclient.model.NoteItem
+import com.livermor.boostnoteclient.model.NoteUi
 import kotlinx.android.synthetic.main.fragment_edit.*
 
 /**
@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_edit.*
  */
 class EditFragment : Fragment() {
 
-    private val noteItem: NoteItem by lazy { arguments?.getParcelable(ARGS_NOTE) as NoteItem }
+    private val noteItem: NoteUi by lazy { arguments?.getParcelable(ARGS_NOTE) as NoteUi }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
             inflater.inflate(R.layout.fragment_edit, container, false)
@@ -22,6 +22,8 @@ class EditFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // todo: set up decent code editor
         tvNoteTitle.text = noteItem.title
         cvEdit.setCode(noteItem.text)
     }
@@ -30,7 +32,7 @@ class EditFragment : Fragment() {
 
         private const val ARGS_NOTE = "ARGS_NOTE"
 
-        fun instance(item: NoteItem): EditFragment {
+        fun instance(item: NoteUi): EditFragment {
             val args = Bundle().apply { putParcelable(ARGS_NOTE, item) }
             return EditFragment().apply { arguments = args }
         }

@@ -8,7 +8,7 @@ import com.example.delegateadapter.delegate.diff.DiffUtilCompositeAdapter
 import com.livermor.boostnoteclient.R
 import com.livermor.boostnoteclient.bind
 import com.livermor.boostnoteclient.feature.edit.EditFragment
-import com.livermor.boostnoteclient.model.NoteItem
+import com.livermor.boostnoteclient.model.NoteUi
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
 
     // todo: use some router mechanics instead
-    private fun goOnEditScreen(note: NoteItem) {
+    private fun goOnEditScreen(note: NoteUi) {
         supportFragmentManager.beginTransaction()
                 .add(R.id.clRoot, EditFragment.instance(note))
                 .addToBackStack(null)
@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
             adapter = mainAdapter
         }
 
-        viewModel.liveData.bind(this, mainAdapter::swapData)
+        viewModel.liveData.bind(this, { model ->
+            mainAdapter.swapData(model.notes)
+        })
     }
 }
