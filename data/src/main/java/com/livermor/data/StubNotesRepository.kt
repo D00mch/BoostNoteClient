@@ -42,12 +42,12 @@ class StubNotesRepository : NotesRepository {
                     }""" to "java"
             }
 
-            object : Note {
-                override val id = i.toString()
-                override val title = "Some $lang program"
-                override val text = code.trimIndent()
-                override val lang = lang
-            }
+            Note(
+                    id = i.toString(),
+                    title = "Some $lang program",
+                    text = code.trimIndent(),
+                    lang = lang
+            )
         }
         return Observable.just(list)
     }

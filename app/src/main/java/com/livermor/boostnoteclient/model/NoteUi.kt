@@ -10,11 +10,11 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 data class NoteUi(
-        override val id: String,
-        override val title: String,
-        override val text: String,
-        override val lang: String
-) : IComparableItem, Parcelable, Note {
+        val id: String,
+        val title: String,
+        val text: String,
+        val lang: String
+) : IComparableItem, Parcelable {
 
     override fun id(): Any = id
 
