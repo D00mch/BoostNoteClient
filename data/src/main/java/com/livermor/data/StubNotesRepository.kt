@@ -3,6 +3,7 @@ package com.livermor.data
 import com.livermor.contract.data.NotesRepository
 import com.livermor.contract.model.Note
 import io.reactivex.Observable
+import java.util.*
 
 /**
  * @author dumchev on 23.07.2018.
@@ -45,8 +46,11 @@ class StubNotesRepository : NotesRepository {
             Note(
                     id = i.toString(),
                     title = "Some $lang program",
-                    text = code.trimIndent(),
-                    lang = lang
+                    content = code.trimIndent(),
+                    lang = lang,
+                    color = null,
+                    createdAt = Date(),
+                    updatedAt = Date()
             )
         }
         return Observable.just(list)

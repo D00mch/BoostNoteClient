@@ -22,7 +22,7 @@ data class NoteUi(
 
     companion object {
         fun from(note: Note): NoteUi = with(note) {
-            NoteUi(id, title, text, lang)
+            NoteUi(id, title, content, lang)
         }
     }
 }
